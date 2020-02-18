@@ -1,0 +1,27 @@
+
+<div class="content">
+    <div class="search-panel">
+        <input type="text" class="input-search" [(ngModel)]="mentorFilter.searchText"/>
+    </div>
+
+    <div *ngFor="let skill of skills" class="">
+        <input type="checkbox" (change)="onChange($event)" value="{{skill}}">
+        <label> {{ skill }}</label>
+    </div>
+
+    <div class="list-panel">
+        <div *ngFor="let mentor of mentors | mentorFilter: mentorFilter">
+            <div class="card">
+                <div>{{ mentor.fullName}}</div>
+                <div>{{ mentor.email }}</div>
+                <ul>
+                    <li *ngFor="let skill of mentor.skills">
+                        {{ skill }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

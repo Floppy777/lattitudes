@@ -3,16 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MentorComponent } from './mentor/mentor.component';
+import { HttpClientModule } from "@angular/common/http"; 
+import { MockMentorService } from './service/mentor.svc.mock';
+import { MentorPipe } from './pipe/mentor.pipe';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MentorComponent,
+    MentorPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [MockMentorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
